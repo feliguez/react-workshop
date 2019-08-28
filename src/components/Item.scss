@@ -1,0 +1,84 @@
+$font-color-base: #333;
+$font-color-soft: #999;
+$gray-soft: #eee;
+$green: #00a650;
+$white: #fff;
+$margin-unit: 8px;
+
+.item {
+  background-color: $white;
+  border-bottom: 1px solid $gray-soft;
+  display: flex;
+  padding: $margin-unit * 2;
+
+  a {
+    color: $font-color-base;
+    text-decoration: none;
+  }
+
+  &--info {
+    padding: ($margin-unit * 2) 0;
+  }
+
+  &--image {
+    margin-right: $margin-unit * 2;
+    padding-top: $margin-unit * 2;
+
+    width: 160px;
+
+    img {
+      display: block;
+      margin: auto;
+    }
+  }
+
+  &--title {
+    font-size: 20px;
+    font-weight: 300;
+    margin-bottom: $margin-unit;
+    margin-top: 0;
+  }
+
+  &--price {
+    margin: 0 0 $margin-unit 0;
+    font-size: 24px;
+
+    &-original {
+      text-decoration: line-through;
+      font-size: 12px;
+      color: $font-color-soft;
+    }
+
+    &-discount {
+      color: $green;
+      font-size: 14px;
+      margin-left: $margin-unit;
+      text-transform: uppercase;
+    }
+  }
+
+  &--price-old {
+    font-size: 14px;
+  }
+
+  &--installments {
+    margin-bottom: $margin-unit;
+    margin-top: $margin-unit * 2;
+  }
+
+  &--installments,
+  &--freeShipping {
+    color: $green;
+    font-size: 14px;
+  }
+}
+
+.item-appear {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in;
+  will-change: opacity;
+
+  &.item-appear-active {
+    opacity: 1;
+  }
+}
