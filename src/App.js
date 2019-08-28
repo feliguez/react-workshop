@@ -1,7 +1,7 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import './App.scss';
-import axios from 'axios';
 import Item from './components/Item';
 
 class App extends Component {
@@ -65,7 +65,7 @@ class App extends Component {
             <input
               type="text"
               value={query}
-              placeholder="Ej: iPhone"
+              placeholder="Buscar productos, marcas y más..."
               onChange={this.handleChangeInput}
             />
             <input type="submit" value="Buscar" />
@@ -73,13 +73,7 @@ class App extends Component {
         </div>
         <ol className="results">
           {items.map(item => (
-            <Item
-              key={item.id}
-              title={item.title}
-              img={item.thumbnail}
-              price={item.price}
-              // oldPrice={item.original_price}
-            />
+            <Item key={item.id} data={item} />
           ))}
         </ol>
       </div>
