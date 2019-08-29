@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { Link } from 'react-router-dom';
+import ItemPrice from '../ItemPrice';
 import './Item.scss';
 
 const Item = props => {
@@ -18,8 +19,6 @@ const Item = props => {
     n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
   const roundInstallments = n => numberWithCommas(Math.floor(n));
-
-  const discountPercent = Math.floor(100 - (price * 100) / original_price);
 
   return (
     <ReactCSSTransitionGroup
@@ -39,19 +38,7 @@ const Item = props => {
           <h2 className="item--title">
             <Link to={`/detail/${id}`}>{title}</Link>
           </h2>
-          {original_price && (
-            <span className="item--price-original">
-              $ {numberWithCommas(original_price)}
-            </span>
-          )}
-          <p className="item--price">
-            $ {numberWithCommas(price)}
-            {original_price && (
-              <span className="item--price-discount">
-                {discountPercent}% Off
-              </span>
-            )}
-          </p>
+          <ItemPrice original_price={original_price} price={price} />
           {installments && (
             <p className="item--installments">
               {installments.quantity}x ${' '}
