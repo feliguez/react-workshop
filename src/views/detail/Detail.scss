@@ -1,0 +1,42 @@
+@import '../search/Search.scss';
+@import '../../components/item/Item.scss';
+
+.detail {
+  padding: 16px;
+
+  .item {
+    &--detail {
+      display: flex;
+      background: white;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+
+      margin: auto;
+      max-width: 80%;
+    }
+
+    &--condition {
+      font-size: 14px;
+      color: $font-color-soft;
+      margin-bottom: $margin-unit * 2;
+    }
+
+    &--image {
+      width: 60%;
+      margin-bottom: $margin-unit * 2;
+    }
+
+    &--info {
+      width: 40%;
+      padding: 16px;
+    }
+  }
+}
+
+.mount-appear {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in;
+
+  &.mount-appear-active {
+    opacity: 1;
+  }
+}
